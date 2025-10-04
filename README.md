@@ -2,15 +2,52 @@
 
 A powerful Model Context Protocol (MCP) server that provides comprehensive Python dependency analysis with commercial licensing insights.
 
-[![npm version](https://badge.fury.io/js/py-dep-licenses-mcp-server.svg)](https://badge.fury.io/js/py-dep-licenses-mcp-server)
+[![CI](https://github.com/stevewallone/py-dep-licenses-mcp-server/workflows/CI/badge.svg)](https://github.com/stevewallone/py-dep-licenses-mcp-server/actions)
+[![Release](https://github.com/stevewallone/py-dep-licenses-mcp-server/workflows/Release/badge.svg)](https://github.com/stevewallone/py-dep-licenses-mcp-server/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
 
-## 📖 Overview
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+  - [From Source](#from-source)
+  - [From npm (when published)](#from-npm-when-published)
+- [Running the Server](#running-the-server)
+  - [Option 1: Using npm scripts](#option-1-using-npm-scripts)
+  - [Option 2: Using startup scripts](#option-2-using-startup-scripts)
+  - [Option 3: Direct execution](#option-3-direct-execution)
+- [Configuration in Cursor](#configuration-in-cursor)
+  - [Method 1: Via Cursor Settings UI](#method-1-via-cursor-settings-ui)
+  - [Method 2: Via Configuration File](#method-2-via-configuration-file)
+- [Usage](#usage)
+  - [Dependency Analysis Tool](#dependency-analysis-tool)
+- [Available Tools](#available-tools)
+  - [`list_dependencies`](#list_dependencies)
+- [Troubleshooting](#troubleshooting)
+  - [Server won't start](#server-wont-start)
+  - [Cursor can't connect to server](#cursor-cant-connect-to-server)
+  - [Permission issues (macOS/Linux)](#permission-issues-macoslinux)
+- [Project Structure](#project-structure)
+- [Dependencies](#dependencies)
+- [Testing](#testing)
+  - [Testing the List Dependencies Tool](#testing-the-list-dependencies-tool)
+- [Development](#development)
+  - [Key Implementation Details](#key-implementation-details)
+  - [Adding a New Tool](#adding-a-new-tool)
+- [License](#license)
+- [Contributing](#contributing)
+- [Issues](#issues)
+- [Roadmap](#roadmap)
+- [Acknowledgments](#acknowledgments)
+
+## Overview
 
 This MCP server helps developers and businesses understand the licensing implications of Python dependencies in their projects. It analyzes GitHub repositories, fetches license information from PyPI, and provides clear insights into which packages are free for commercial use and which may require payment.
 
-## 🚀 Features
+## Features
 
 - **Advanced Python Dependencies Tool**: Analyzes GitHub Python repositories and provides comprehensive dependency analysis
 - **Commercial Licensing Analysis**: Identifies which dependencies require payment for commercial use
@@ -21,12 +58,12 @@ This MCP server helps developers and businesses understand the licensing implica
 - **Cross-Platform**: Works on Windows, macOS, and Linux
 - **Easy Setup**: Simple installation and startup process
 
-## 📋 Prerequisites
+## Prerequisites
 
 - **Node.js 18+**: Download from [nodejs.org](https://nodejs.org/)
 - **npm**: Usually comes with Node.js
 
-## 🛠️ Installation
+## Installation
 
 ### From Source
 1. **Clone the repository**:
@@ -45,7 +82,7 @@ This MCP server helps developers and businesses understand the licensing implica
 npm install -g py-dep-licenses-mcp-server
 ```
 
-## 🏃‍♂️ Running the Server
+## Running the Server
 
 ### Option 1: Using npm scripts
 ```bash
@@ -61,7 +98,7 @@ npm start
 node server.js
 ```
 
-## 🔧 Configuration in Cursor
+## Configuration in Cursor
 
 To use this MCP server with Cursor, you need to configure it in Cursor's settings:
 
@@ -95,7 +132,7 @@ Add this configuration:
 }
 ```
 
-## 🎯 Usage
+## Usage
 
 Once configured in Cursor, you can use the server by calling the dependency analysis tool:
 
@@ -105,7 +142,7 @@ Use the list_dependencies tool with github_url "https://github.com/user/repo"
 ```
 The server will provide comprehensive dependency analysis with commercial licensing insights.
 
-## 🛠️ Available Tools
+## Available Tools
 
 ### `list_dependencies`
 Comprehensive Python dependency analysis tool that lists dependencies from GitHub repositories with commercial licensing insights.
@@ -141,51 +178,51 @@ Comprehensive Python dependency analysis tool that lists dependencies from GitHu
 
 **Response:**
 ```
-📦 **Dependencies for stevewallone/temporal-ai-agent** (from pyproject.toml):
+**Dependencies for stevewallone/temporal-ai-agent** (from pyproject.toml):
 
-## ✅ FREE for Commercial Use (14)
+## FREE for Commercial Use (14)
 
-1. **litellm** (MIT) - ✅ Free for commercial use
-2. **pyyaml** (MIT) - ✅ Free for commercial use
-3. **fastapi** (OSI Approved) - ✅ Free for commercial use (OSI Approved)
-4. **uvicorn** (OSI Approved) - ✅ Free for commercial use (OSI Approved)
-5. **python-dotenv** (BSD-3-Clause) - ✅ Free for commercial use
-6. **requests** (Apache-2.0) - ✅ Free for commercial use
-7. **pandas** (MIT) - ✅ Free for commercial use
-8. **stripe** (OSI Approved) - ✅ Free for commercial use (OSI Approved)
-9. **fastmcp** (OSI Approved) - ✅ Free for commercial use (OSI Approved)
-10. **pytest** (MIT) - ✅ Free for commercial use
-11. **black** (OSI Approved) - ✅ Free for commercial use (OSI Approved)
-12. **isort** (OSI Approved) - ✅ Free for commercial use (OSI Approved)
-13. **mypy** (MIT) - ✅ Free for commercial use
-14. **poethepoet** (MIT) - ✅ Free for commercial use
+1. **litellm** (MIT) - Free for commercial use
+2. **pyyaml** (MIT) - Free for commercial use
+3. **fastapi** (OSI Approved) - Free for commercial use (OSI Approved)
+4. **uvicorn** (OSI Approved) - Free for commercial use (OSI Approved)
+5. **python-dotenv** (BSD-3-Clause) - Free for commercial use
+6. **requests** (Apache-2.0) - Free for commercial use
+7. **pandas** (MIT) - Free for commercial use
+8. **stripe** (OSI Approved) - Free for commercial use (OSI Approved)
+9. **fastmcp** (OSI Approved) - Free for commercial use (OSI Approved)
+10. **pytest** (MIT) - Free for commercial use
+11. **black** (OSI Approved) - Free for commercial use (OSI Approved)
+12. **isort** (OSI Approved) - Free for commercial use (OSI Approved)
+13. **mypy** (MIT) - Free for commercial use
+14. **poethepoet** (MIT) - Free for commercial use
 
-## 💰 PAYMENT REQUIRED for Commercial Use (1)
+## PAYMENT REQUIRED for Commercial Use (1)
 
-1. **sourcery** (Proprietary) - 💰 Proprietary license - Payment required
+1. **sourcery** (Proprietary) - Proprietary license - Payment required
 
-## ❓ UNKNOWN Commercial Use Status (3)
+## UNKNOWN Commercial Use Status (3)
 
 1. **temporalio** (License unknown) - License information unavailable
 2. **gtfs-kit** (License unknown) - License information unavailable
 3. **pytest-asyncio** (License unknown) - License information unavailable
 
-## 📊 Commercial Use Summary
-- ✅ Free for commercial use: **14** packages
-- ⚠️ Check commercial restrictions: **0** packages
-- 💰 Payment required: **1** packages
-- ❓ Unknown status: **3** packages
+## Commercial Use Summary
+- Free for commercial use: **14** packages
+- Check commercial restrictions: **0** packages
+- Payment required: **1** packages
+- Unknown status: **3** packages
 
-⚠️ **IMPORTANT**: 1 package(s) may require payment for commercial use. Review licensing terms carefully!
+**IMPORTANT**: 1 package(s) may require payment for commercial use. Review licensing terms carefully!
 ```
 
 **License Categories:**
-- **✅ FREE**: MIT, Apache-2.0, BSD-3-Clause, OSI Approved licenses
-- **⚠️ WARNING**: GPL, AGPL, and other copyleft licenses requiring careful review
-- **💰 PAID**: Proprietary licenses requiring commercial payment
-- **❓ UNKNOWN**: Packages where license information is unavailable
+- **FREE**: MIT, Apache-2.0, BSD-3-Clause, OSI Approved licenses
+- **WARNING**: GPL, AGPL, and other copyleft licenses requiring careful review
+- **PAID**: Proprietary licenses requiring commercial payment
+- **UNKNOWN**: Packages where license information is unavailable
 
-## 🔍 Troubleshooting
+## Troubleshooting
 
 ### Server won't start
 - Ensure Node.js 18+ is installed: `node --version`
@@ -200,7 +237,7 @@ Comprehensive Python dependency analysis tool that lists dependencies from GitHu
 ### Permission issues (macOS/Linux)
 - Make the startup script executable: `chmod +x start-server.sh`
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 py-dep-licenses-mcp-server/
@@ -212,14 +249,14 @@ py-dep-licenses-mcp-server/
 └── .gitignore          # Git ignore file
 ```
 
-## 🔧 Dependencies
+## Dependencies
 
 The server uses the following Node.js packages:
 - **@modelcontextprotocol/sdk**: Official MCP SDK for building protocol-compliant servers
 - **axios**: HTTP client for fetching GitHub repository files and PyPI package information
 - **yaml**: YAML parser for conda environment.yml files
 
-## 🧪 Testing
+## Testing
 
 You can test the server manually using MCP client tools or by running it and sending MCP protocol messages via stdin/stdout.
 
@@ -228,7 +265,7 @@ You can test the server manually using MCP client tools or by running it and sen
 echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "list_dependencies", "arguments": {"github_url": "https://github.com/stevewallone/temporal-ai-agent"}}}' | node server.js
 ```
 
-## 📝 Development
+## Development
 
 To modify the server:
 
@@ -279,11 +316,11 @@ if (name === 'your-tool-name') {
 }
 ```
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
@@ -293,11 +330,11 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 🐛 Issues
+## Issues
 
 If you encounter any issues or have suggestions, please [open an issue](https://github.com/stevewallone/py-dep-licenses-mcp-server/issues) on GitHub.
 
-## 📈 Roadmap
+## Roadmap
 
 - [ ] Support for more package managers (conda, pipenv, etc.)
 - [ ] Enhanced license detection and analysis
@@ -305,7 +342,7 @@ If you encounter any issues or have suggestions, please [open an issue](https://
 - [ ] Batch analysis of multiple repositories
 - [ ] Export functionality for license reports
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built with the [Model Context Protocol SDK](https://github.com/modelcontextprotocol/sdk)
 - License information fetched from [PyPI](https://pypi.org/)
@@ -313,5 +350,5 @@ If you encounter any issues or have suggestions, please [open an issue](https://
 
 ---
 
-**Happy coding! 🎉**
+**Happy coding!**
 

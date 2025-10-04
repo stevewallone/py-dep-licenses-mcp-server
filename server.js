@@ -9,7 +9,7 @@ import {
 import axios from 'axios';
 import { parse as parseYaml } from 'yaml';
 
-class PyDepLicensesMCPServer {
+export class PyDepLicensesMCPServer {
   constructor() {
     this.server = new Server(
       {
@@ -822,7 +822,9 @@ class PyDepLicensesMCPServer {
   }
 }
 
-// Start the server
-const server = new PyDepLicensesMCPServer();
-server.run().catch(console.error);
+// Start the server only when not in test environment
+if (process.env.NODE_ENV !== 'test') {
+  const server = new PyDepLicensesMCPServer();
+  server.run().catch(console.error);
+}
 

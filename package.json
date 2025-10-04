@@ -6,7 +6,14 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
+    "test:watch": "NODE_OPTIONS='--experimental-vm-modules' jest --watch",
+    "test:coverage": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage",
+    "lint": "echo 'Linting not configured yet'",
+    "lint:fix": "echo 'Lint fix not configured yet'",
+    "audit": "npm audit",
+    "audit:fix": "npm audit fix"
   },
   "keywords": ["mcp", "server", "python", "dependencies", "licensing", "commercial"],
   "author": "Steve Wall",
@@ -15,6 +22,10 @@
     "@modelcontextprotocol/sdk": "^0.4.0",
     "axios": "^1.6.0",
     "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "axios-mock-adapter": "^1.22.0"
   },
   "engines": {
     "node": ">=18.0.0"
