@@ -31,7 +31,7 @@ This MCP server helps developers and businesses understand the licensing implica
 ### From Source
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/py-dep-licenses-mcp-server.git
+   git clone https://github.com/stevewallone/py-dep-licenses-mcp-server.git
    cd py-dep-licenses-mcp-server
    ```
 
@@ -295,7 +295,7 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 ## 🐛 Issues
 
-If you encounter any issues or have suggestions, please [open an issue](https://github.com/yourusername/py-dep-licenses-mcp-server/issues) on GitHub.
+If you encounter any issues or have suggestions, please [open an issue](https://github.com/stevewallone/py-dep-licenses-mcp-server/issues) on GitHub.
 
 ## 📈 Roadmap
 
