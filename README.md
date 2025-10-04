@@ -19,28 +19,20 @@ A powerful Model Context Protocol (MCP) server that provides comprehensive Pytho
   - [Option 1: Using npm scripts](#option-1-using-npm-scripts)
   - [Option 2: Using startup scripts](#option-2-using-startup-scripts)
   - [Option 3: Direct execution](#option-3-direct-execution)
-- [Configuration in Cursor](#configuration-in-cursor)
-  - [Method 1: Via Cursor Settings UI](#method-1-via-cursor-settings-ui)
-  - [Method 2: Via Configuration File](#method-2-via-configuration-file)
 - [Usage](#usage)
   - [Dependency Analysis Tool](#dependency-analysis-tool)
 - [Available Tools](#available-tools)
   - [`list_dependencies`](#list_dependencies)
 - [Troubleshooting](#troubleshooting)
   - [Server won't start](#server-wont-start)
-  - [Cursor can't connect to server](#cursor-cant-connect-to-server)
   - [Permission issues (macOS/Linux)](#permission-issues-macoslinux)
-- [Project Structure](#project-structure)
-- [Dependencies](#dependencies)
 - [Testing](#testing)
   - [Testing the List Dependencies Tool](#testing-the-list-dependencies-tool)
 - [Development](#development)
   - [Key Implementation Details](#key-implementation-details)
-  - [Adding a New Tool](#adding-a-new-tool)
 - [License](#license)
 - [Contributing](#contributing)
 - [Issues](#issues)
-- [Roadmap](#roadmap)
 - [Acknowledgments](#acknowledgments)
 
 ## Overview
@@ -98,43 +90,7 @@ npm start
 node server.js
 ```
 
-## Configuration in Cursor
-
-To use this MCP server with Cursor, you need to configure it in Cursor's settings:
-
-### Method 1: Via Cursor Settings UI
-1. Open Cursor
-2. Go to **Settings** (Cmd/Ctrl + ,)
-3. Look for **MCP** or **Extensions** section
-4. Add a new MCP server with these settings:
-   - **Name**: `py-dep-licenses-mcp-server`
-   - **Command**: `node`
-   - **Args**: `["/absolute/path/to/your/server.js"]`
-   - **Working Directory**: `/absolute/path/to/your/server/directory`
-
-### Method 2: Via Configuration File
-Edit Cursor's configuration file:
-
-**macOS**: `~/Library/Application Support/Cursor/User/settings.json`
-**Windows**: `%APPDATA%\Cursor\User\settings.json`
-**Linux**: `~/.config/Cursor/User/settings.json`
-
-Add this configuration:
-```json
-{
-  "mcp.servers": {
-    "py-dep-licenses-mcp-server": {
-      "command": "node",
-      "args": ["/absolute/path/to/your/server.js"],
-      "cwd": "/absolute/path/to/your/server/directory"
-    }
-  }
-}
-```
-
 ## Usage
-
-Once configured in Cursor, you can use the server by calling the dependency analysis tool:
 
 ### Dependency Analysis Tool
 ```
@@ -177,7 +133,7 @@ Comprehensive Python dependency analysis tool that lists dependencies from GitHu
 ```
 
 **Response:**
-```
+
 **Dependencies for stevewallone/temporal-ai-agent** (from pyproject.toml):
 
 ## FREE for Commercial Use (14)
@@ -214,7 +170,7 @@ Comprehensive Python dependency analysis tool that lists dependencies from GitHu
 - Unknown status: **3** packages
 
 **IMPORTANT**: 1 package(s) may require payment for commercial use. Review licensing terms carefully!
-```
+
 
 **License Categories:**
 - **FREE**: MIT, Apache-2.0, BSD-3-Clause, OSI Approved licenses
@@ -229,32 +185,9 @@ Comprehensive Python dependency analysis tool that lists dependencies from GitHu
 - Check if dependencies are installed: `npm list`
 - Try reinstalling dependencies: `npm install`
 
-### Cursor can't connect to server
-- Verify the absolute path to `server.js` in Cursor's configuration
-- Make sure the server is running before opening Cursor
-- Check Cursor's developer console for connection errors
 
 ### Permission issues (macOS/Linux)
 - Make the startup script executable: `chmod +x start-server.sh`
-
-## Project Structure
-
-```
-py-dep-licenses-mcp-server/
-├── server.js           # Main MCP server implementation
-├── package.json        # Node.js dependencies and scripts
-├── start-server.sh     # Unix startup script
-├── start-server.bat    # Windows startup script
-├── README.md           # This documentation
-└── .gitignore          # Git ignore file
-```
-
-## Dependencies
-
-The server uses the following Node.js packages:
-- **@modelcontextprotocol/sdk**: Official MCP SDK for building protocol-compliant servers
-- **axios**: HTTP client for fetching GitHub repository files and PyPI package information
-- **yaml**: YAML parser for conda environment.yml files
 
 ## Testing
 
@@ -283,38 +216,7 @@ The `list_dependencies` tool includes:
 - **Commercial Analysis**: Categorizes licenses based on commercial use implications
 - **Error Handling**: Graceful fallbacks for missing files or API failures
 
-### Adding a New Tool
 
-```javascript
-// In the setupToolHandlers method, add to the tools array:
-{
-  name: 'your-tool-name',
-  description: 'Description of what the tool does',
-  inputSchema: {
-    type: 'object',
-    properties: {
-      parameter: {
-        type: 'string',
-        description: 'Parameter description'
-      }
-    },
-    required: ['parameter']
-  }
-}
-
-// And add a handler in the CallToolRequestSchema handler:
-if (name === 'your-tool-name') {
-  const { parameter } = args;
-  return {
-    content: [
-      {
-        type: 'text',
-        text: `Your response: ${parameter}`
-      }
-    ]
-  };
-}
-```
 
 ## License
 
@@ -333,14 +235,6 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 ## Issues
 
 If you encounter any issues or have suggestions, please [open an issue](https://github.com/stevewallone/py-dep-licenses-mcp-server/issues) on GitHub.
-
-## Roadmap
-
-- [ ] Support for more package managers (conda, pipenv, etc.)
-- [ ] Enhanced license detection and analysis
-- [ ] Integration with more AI assistants
-- [ ] Batch analysis of multiple repositories
-- [ ] Export functionality for license reports
 
 ## Acknowledgments
 
