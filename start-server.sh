@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Hello MCP Server Startup Script
-echo "🚀 Starting Hello MCP Server..."
+# Python Dependencies Licenses MCP Server Startup Script
+echo "🚀 Starting Python Dependencies Licenses MCP Server..."
 
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then
