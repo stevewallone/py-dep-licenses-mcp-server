@@ -3,7 +3,7 @@
 A powerful Model Context Protocol (MCP) server that provides comprehensive Python dependency analysis with commercial licensing insights.
 
 [![CI](https://github.com/stevewallone/py-dep-licenses-mcp-server/actions/workflows/ci.yml/badge.svg)](https://github.com/stevewallone/py-dep-licenses-mcp-server/actions)
-[![Release](https://github.com/stevewallone/py-dep-licenses-mcp-server/actions/workflows/release.yml/badge.svg)](https://github.com/stevewallone/py-dep-licenses-mcp-server/releases)
+[![Release](https://img.shields.io/github/v/release/stevewallone/py-dep-licenses-mcp-server)](https://github.com/stevewallone/py-dep-licenses-mcp-server/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
 
