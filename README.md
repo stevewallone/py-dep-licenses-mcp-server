@@ -1,4 +1,4 @@
-# Py Dep Licenses MCP Server
+# Python Dependencies Licenses MCP Server
 
 A powerful Model Context Protocol (MCP) server that provides comprehensive Python dependency analysis with commercial licensing insights.
 
